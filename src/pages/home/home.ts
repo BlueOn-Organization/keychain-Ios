@@ -10,7 +10,6 @@ import {IBeacon} from "@ionic-native/ibeacon";
   templateUrl: 'home.html'
 })
 export class HomePage {
-
   constructor(
     public navCtrl: NavController,
     private afAuth: AngularFireAuth,
