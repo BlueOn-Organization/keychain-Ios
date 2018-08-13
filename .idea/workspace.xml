@@ -1,10 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="e5c990d5-9385-42fd-8e7d-f701675905d2" name="Default" comment="testing commit">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/pages/home/home.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/pages/home/home.ts" afterDir="false" />
-    </list>
+    <list default="true" id="e5c990d5-9385-42fd-8e7d-f701675905d2" name="Default" comment="" />
     <ignored path="$PROJECT_DIR$/.tmp/" />
     <ignored path="$PROJECT_DIR$/temp/" />
     <ignored path="$PROJECT_DIR$/tmp/" />
@@ -1178,7 +1175,7 @@
       <workItem from="1534184117865" duration="1000" />
       <workItem from="1534184140482" duration="294000" />
       <workItem from="1534184646998" duration="1180000" />
-      <workItem from="1534191247263" duration="568000" />
+      <workItem from="1534191247263" duration="1439000" />
     </task>
     <task id="LOCAL-00001" summary="first commit">
       <created>1534181579985</created>
@@ -1229,11 +1226,18 @@
       <option name="project" value="LOCAL" />
       <updated>1534184578935</updated>
     </task>
-    <option name="localTasksCounter" value="8" />
+    <task id="LOCAL-00008" summary="testing commit">
+      <created>1534191993304</created>
+      <option name="number" value="00008" />
+      <option name="presentableId" value="LOCAL-00008" />
+      <option name="project" value="LOCAL" />
+      <updated>1534191993304</updated>
+    </task>
+    <option name="localTasksCounter" value="9" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="5336000" />
+    <option name="totallyTimeSpent" value="6207000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -1246,17 +1250,16 @@
   </component>
   <component name="ToolWindowManager">
     <frame x="65" y="23" width="1166" height="735" extended-state="0" />
-    <editor active="true" />
     <layout>
       <window_info anchor="bottom" id="TypeScript" order="7" sideWeight="0.4995633" weight="0.3291536" />
-      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.24978165" />
+      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.24978165" />
       <window_info anchor="bottom" id="TODO" order="6" weight="0.3291536" />
       <window_info anchor="bottom" id="Docker" order="7" show_stripe_button="false" />
-      <window_info anchor="bottom" id="Event Log" order="7" sideWeight="0.36506552" side_tool="true" visible="true" weight="0.44984326" />
+      <window_info anchor="bottom" id="Event Log" order="7" sideWeight="0.36593887" side_tool="true" visible="true" weight="0.44984326" />
       <window_info anchor="bottom" id="Run" order="2" />
-      <window_info anchor="bottom" id="Version Control" order="7" sideWeight="0.6349345" visible="true" weight="0.44984326" />
+      <window_info active="true" anchor="bottom" id="Version Control" order="7" sideWeight="0.63406116" visible="true" weight="0.44984326" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
-      <window_info anchor="bottom" id="Terminal" order="7" sideWeight="0.6349345" weight="0.3291536" />
+      <window_info anchor="bottom" id="Terminal" order="7" sideWeight="0.63406116" weight="0.3291536" />
       <window_info anchor="bottom" id="Debug" order="3" weight="0.4" />
       <window_info id="Favorites" order="2" side_tool="true" />
       <window_info anchor="right" content_ui="combo" id="Hierarchy" order="2" weight="0.25" />
