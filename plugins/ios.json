@@ -1,0 +1,39 @@
+{
+  "prepare_queue": {
+    "installed": [],
+    "uninstalled": []
+  },
+  "config_munge": {
+    "files": {}
+  },
+  "installed_plugins": {
+    "cordova-plugin-device": {
+      "PACKAGE_NAME": "eduyy.beacons.blueon"
+    },
+    "cordova-plugin-ionic-keyboard": {
+      "PACKAGE_NAME": "eduyy.beacons.blueon"
+    },
+    "cordova-plugin-ionic-webview": {
+      "PACKAGE_NAME": "eduyy.beacons.blueon"
+    },
+    "cordova-plugin-splashscreen": {
+      "PACKAGE_NAME": "eduyy.beacons.blueon"
+    },
+    "cordova-plugin-whitelist": {
+      "PACKAGE_NAME": "eduyy.beacons.blueon"
+    },
+    "cordova-plugin-statusbar": {
+      "PACKAGE_NAME": "eduyy.beacons.blueon"
+    },
+    "cordova-plugin-facebook4": {
+      "APP_ID": "1795511067200730",
+      "APP_NAME": "blue-on",
+      "ANDROID_SDK_VERSION": "4.+",
+      "PACKAGE_NAME": "eduyy.beacons.blueon"
+    },
+    "com.unarin.cordova.beacon": {
+      "PACKAGE_NAME": "eduyy.beacons.blueon"
+    }
+  },
+  "dependent_plugins": {}
+}

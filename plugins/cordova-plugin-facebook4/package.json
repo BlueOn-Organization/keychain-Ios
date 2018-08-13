@@ -1,0 +1,59 @@
+{
+  "_from": "cordova-plugin-facebook4@^2.3.0",
+  "_id": "cordova-plugin-facebook4@2.3.0",
+  "_inBundle": false,
+  "_integrity": "sha512-tUzimaruJ9jGEtL96jc9HUYf5/Zg+6iVSGyUfnsEUPO51xwwJA0Hg36Fi/iccwEGO5kNChlEpmO+/FeL7XjJCQ==",
+  "_location": "/cordova-plugin-facebook4",
+  "_phantomChildren": {},
+  "_requested": {
+    "type": "range",
+    "registry": true,
+    "raw": "cordova-plugin-facebook4@^2.3.0",
+    "name": "cordova-plugin-facebook4",
+    "escapedName": "cordova-plugin-facebook4",
+    "rawSpec": "^2.3.0",
+    "saveSpec": null,
+    "fetchSpec": "^2.3.0"
+  },
+  "_requiredBy": [
+    "#USER",
+    "/"
+  ],
+  "_resolved": "https://registry.npmjs.org/cordova-plugin-facebook4/-/cordova-plugin-facebook4-2.3.0.tgz",
+  "_shasum": "c1927dad2844e1c449f2f7177a163aa193fece87",
+  "_spec": "cordova-plugin-facebook4@^2.3.0",
+  "_where": "/Users/ltaleron/Documents/blue-on/test2",
+  "bugs": {
+    "url": "https://github.com/jeduan/cordova-plugin-facebook4/issues"
+  },
+  "bundleDependencies": false,
+  "cordova": {
+    "id": "cordova-plugin-facebook4",
+    "platforms": [
+      "android",
+      "ios",
+      "browser"
+    ]
+  },
+  "deprecated": false,
+  "description": "Cordova Facebook SDK 4 Plugin",
+  "homepage": "https://github.com/jeduan/cordova-plugin-facebook4#readme",
+  "keywords": [
+    "cordova",
+    "facebook",
+    "ecosystem:cordova",
+    "cordova-android",
+    "cordova-ios",
+    "cordova-browser",
+    "facebook-sdk",
+    "social",
+    "sharing"
+  ],
+  "license": "Apache-2.0",
+  "name": "cordova-plugin-facebook4",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/jeduan/cordova-plugin-facebook4.git"
+  },
+  "version": "2.3.0"
+}
