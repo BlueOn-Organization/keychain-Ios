@@ -1,0 +1,27 @@
+<ion-card color="primary">
+  <ion-list>
+    <ion-item-sliding>
+      <ion-item class="data" color="primary">
+
+        <button ion-button icon-only clear item-start color="light" (click)="editar()">
+          <ion-icon name="settings"></ion-icon>
+        </button>
+
+        <div item-content>
+          <h2>{{device.nombre}}</h2>
+          <p>{{device.id}}</p>
+        </div>
+
+        <div item-end *ngIf="stalker.watching">
+            <ion-icon *ngIf="device.tick > 0" name="notifications"></ion-icon>
+            <ion-icon *ngIf="device.tick == -1" name="notifications-off"></ion-icon>
+        </div>
+
+        <button ion-button icon-only clear item-end color="light" (click)="buscar()">
+          <ion-icon ios="ios-radio-outline" md="md-wifi"></ion-icon>
+        </button>
+
+      </ion-item>
+    </ion-item-sliding>
+  </ion-list>
+</ion-card>

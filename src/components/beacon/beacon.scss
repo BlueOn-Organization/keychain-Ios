@@ -1,0 +1,50 @@
+beacon {
+  ion-item.data {
+    & > .item-inner div.input-wrapper > ion-label {
+      display: none !important;
+    }
+
+    border: none !important;
+    padding: 10px 0 10px 15px;
+
+    [item-content] {
+      width: 100%;
+      ion-item {
+        padding-left: 0;
+        min-height: 19px;
+        height: 19px;
+
+        &, .item-inner {
+          box-shadow: none !important;
+          border: none !important;
+        }
+      }
+    }
+  }
+
+  ion-item-options {
+    border: none !important;
+  }
+
+  ion-item-options .button {
+    background-color: white;
+    color: #2575bb;
+
+    &:last-child {
+      padding-right: 0 !important;
+    }
+  }
+
+  .list-md ion-item-sliding {
+    // background-color: map-get($colors, primary);
+  }
+
+  #nombre {
+
+  }
+
+  #uid {
+    font-weight: bold;
+    color: #838383;
+  }
+}

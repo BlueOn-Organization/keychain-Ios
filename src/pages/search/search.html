@@ -1,0 +1,27 @@
+<ion-header no-border>
+  <ion-navbar transparent>
+    <ion-title color="light"></ion-title>
+  </ion-navbar>
+</ion-header>
+<ion-content>
+  <ion-grid>
+    <ion-row justify-content-center align-items-center id="label-name">
+      <div>
+        <span>Estas buscado:</span>
+        <div>{{beacon_name}}</div>
+      </div>
+    </ion-row>
+    <ion-row justify-content-center align-items-center id="animation">
+      <img [src]="gif" alt="animation" />
+    </ion-row>
+    <ion-row justify-content-center align-items-center id="estado">
+      <div>{{label}}</div>
+    </ion-row>
+    <ion-row justify-content-center align-items-center id="distancia">
+      <div>{{label2}}</div>
+    </ion-row>
+    <!-- <ion-row justify-content-center align-items-center id="back">
+      <div>Volver</div>
+    </ion-row> -->
+  </ion-grid>
+</ion-content>

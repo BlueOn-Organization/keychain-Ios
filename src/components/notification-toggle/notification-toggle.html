@@ -1,0 +1,6 @@
+<button ion-button icon-only *ngIf="enabled" (click)="off()" id="noti-on">
+  <ion-icon name="notifications"></ion-icon>
+</button>
+<button ion-button icon-only *ngIf="!enabled" (click)="on()" id="noti-off">
+  <ion-icon name="notifications-off"></ion-icon>
+</button>

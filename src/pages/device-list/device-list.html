@@ -1,0 +1,13 @@
+<ion-header no-border>
+  <ion-navbar transparent>
+    <ion-title color="light">LLaveros</ion-title>
+    <ion-buttons end *ngIf="saved_devices.length">
+      <notification-toggle></notification-toggle>
+    </ion-buttons>
+  </ion-navbar>
+</ion-header>
+
+<ion-content padding fullscreen>
+  <beacon *ngFor="let device of saved_devices" [device]="device"></beacon>
+  <a class="btn_link" (click)="link()"></a>
+</ion-content>

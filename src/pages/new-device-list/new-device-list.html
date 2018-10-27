@@ -1,0 +1,22 @@
+<ion-header no-border>
+    <ion-navbar transparent>
+      <ion-title color="light">LLaveros encontrados</ion-title>
+  </ion-navbar>
+</ion-header>
+
+<ion-content padding fullscreen>
+  <ion-card *ngFor="let device of new_beacons">
+    <ion-item color="secondary" class="data">
+      <div item-content>
+        <p>ID: <span class="censored">b9407f30-f5f8-466e-aff9-{{device.major}}{{device.minor}}</span></p>
+        <p>major: {{device.major}} - minor: {{device.minor}}</p>
+      </div>
+      <button ion-button icon-only clear item-end color="light" (click)="saveDevice(device)">
+        <ion-icon name="add"></ion-icon>
+      </button>
+    </ion-item>
+  </ion-card>
+
+
+  <a class="btn_link" (click)="link()"></a>
+</ion-content>

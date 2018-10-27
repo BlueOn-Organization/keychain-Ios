@@ -1,0 +1,20 @@
+page-device-list {
+  .scroll-content{
+    display: flex;
+    flex-direction: column;
+    align-content: stretch;
+    // padding-top: 5px !important;
+    background-image: url('../assets/imgs/Fllaveros.jpg');
+    background-size: 100% 100%;
+    text-align: center;
+    color: white;
+  }
+
+  .btn_link{
+    position: fixed;
+    width: 100%;
+    height: 50px;
+    padding: 0px 100px 0px 100px;
+    bottom: 15px;
+  }
+}
