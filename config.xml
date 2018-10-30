@@ -1,5 +1,5 @@
 <?xml version='1.0' encoding='utf-8'?>
-<widget id="eduyy.beacons.blueon.ios" version="1.0.3" xmlns="http://www.w3.org/ns/widgets" xmlns:cdv="http://cordova.apache.org/ns/1.0">
+<widget id="eduyy.beacons.blueon.ios" version="1.0.5" xmlns="http://www.w3.org/ns/widgets" xmlns:cdv="http://cordova.apache.org/ns/1.0">
     <name>Localizador</name>
     <description>An awesome Ionic/Cordova app.</description>
     <author email="gustperz@gmail.com" href="http://ionicframework.com/">Gustavo Pérez Machado</author>
@@ -21,6 +21,10 @@
     <preference name="SplashScreenDelay" value="3000" />
     <preference name="orientation" value="portrait" />
     <platform name="android">
+        <config-file parent="/resources" target="./res/values/strings.xml">
+            <string name="fb_app_id">1795511067200730</string>
+            <string name="fb_app_name">blueon</string>
+        </config-file>
         <allow-intent href="market:*" />
         <icon density="ldpi" src="resources/android/icon/drawable-ldpi-icon.png" />
         <icon density="mdpi" src="resources/android/icon/drawable-mdpi-icon.png" />
@@ -96,6 +100,7 @@
     <plugin name="cordova-plugin-background-mode" spec="https://github.com/katzer/cordova-plugin-background-mode.git" />
     <plugin name="cordova-plugin-inappbrowser" spec="^3.0.0" />
     <plugin name="cordova-sqlite-storage" spec="2.5.0" />
+    <plugin name="cordova-open-native-settings" spec="1.5.1" />
     <engine name="ios" spec="4.5.5" />
     <engine name="android" spec="7.0.0" />
 </widget>

@@ -15,6 +15,7 @@ import { IBeacon } from '@ionic-native/ibeacon';
 import { InAppBrowser } from '@ionic-native/in-app-browser';
 //import { BLE } from '@ionic-native/ble'
 import { LocalNotifications } from '@ionic-native/local-notifications';
+import { OpenNativeSettings } from "@ionic-native/open-native-settings";
 import { BackgroundMode } from '@ionic-native/background-mode';
 import { BeaconsStorage } from '../providers/beacons-storage/beacons-storage';
 import { BeaconMonitorProvider } from '../providers/beacon-monitor/beacon-monitor';
@@ -65,6 +66,7 @@ const firebaseConfig = {
     InAppBrowser,
     //BLE,
     BackgroundMode,
+    OpenNativeSettings,
     BeaconMonitorProvider,
     BeaconStalkerProvider,
   ]

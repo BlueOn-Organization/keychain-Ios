@@ -15,10 +15,9 @@ export class BeaconStalkerProvider {
 
   constructor(
     private localNotifications: LocalNotifications,
-    beaconStorage: BeaconsStorage,
+    private beaconStorage: BeaconsStorage,
     private ibeacon: IBeacon
   ) {
-    this.spected_beacons = beaconStorage.list;
     this.nearby_beacons = {};
   }
 
@@ -26,16 +25,18 @@ export class BeaconStalkerProvider {
     return this.watching;
   }
 
-  watch() {
+  async watch() {
     this.watching = true;
 
+    this.spected_beacons = await this.beaconStorage.load();
+
     this.start().subscribe(
-      data => this.checkFound(data.beacons),
-      error => console.error(error)
+        data => this.checkFound(data.beacons),
+        error => console.error(error)
     );
 
     this.spected_beacons.filter(beacon => beacon.tick > 0)
-      .forEach((beacon, index) => this.findDevice(beacon, index));
+        .forEach((beacon, index) => this.findDevice(beacon, index));
   }
 
   unWatch() {
