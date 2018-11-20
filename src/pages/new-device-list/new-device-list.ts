@@ -46,7 +46,7 @@ export class NewDeviceListPage {
     this.monitor.stop();
   }
 
-  private saveDevice(beacon: Beacon) {
+  public saveDevice(beacon: Beacon) {
     let prompt = this.alertCtrl.create({
       title: 'Agregar',
       subTitle: 'dispositivo detectado:',

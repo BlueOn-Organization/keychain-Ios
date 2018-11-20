@@ -1,5 +1,5 @@
 <?xml version='1.0' encoding='utf-8'?>
-<widget id="eduyy.beacons.blueon.ios" version="1.0.5" xmlns="http://www.w3.org/ns/widgets" xmlns:cdv="http://cordova.apache.org/ns/1.0">
+<widget android-versionCode="4" id="eduyy.beacons.blueon.android" version="2.1.3" xmlns="http://www.w3.org/ns/widgets" xmlns:cdv="http://cordova.apache.org/ns/1.0">
     <name>Localizador</name>
     <description>An awesome Ionic/Cordova app.</description>
     <author email="gustperz@gmail.com" href="http://ionicframework.com/">Gustavo Pérez Machado</author>
@@ -21,6 +21,8 @@
     <preference name="SplashScreenDelay" value="3000" />
     <preference name="orientation" value="portrait" />
     <platform name="android">
+        <preference name="android-minSdkVersion" value="22" />
+        <resource-file src="google-services.json" target="app/google-services.json" />
         <config-file parent="/resources" target="./res/values/strings.xml">
             <string name="fb_app_id">1795511067200730</string>
             <string name="fb_app_name">blueon</string>
@@ -46,6 +48,7 @@
         <splash density="port-xxxhdpi" src="resources/android/splash/drawable-port-xxxhdpi-screen.png" />
     </platform>
     <platform name="ios">
+        <resource-file src="GoogleService-Info.plist" />
         <allow-intent href="itms:*" />
         <allow-intent href="itms-apps:*" />
         <icon height="57" src="resources/ios/icon/icon.png" width="57" />
@@ -81,26 +84,31 @@
         <splash height="480" src="resources/ios/splash/Default~iphone.png" width="320" />
         <splash height="2732" src="resources/ios/splash/Default@2x~universal~anyany.png" width="2732" />
     </platform>
-    <plugin name="cordova-plugin-whitelist" spec="1.3.3" />
-    <plugin name="cordova-plugin-statusbar" spec="2.4.2" />
-    <plugin name="cordova-plugin-device" spec="2.0.2" />
-    <plugin name="cordova-plugin-splashscreen" spec="5.0.2" />
-    <plugin name="cordova-plugin-ionic-webview" spec="^2.0.0" />
-    <plugin name="cordova-plugin-ionic-keyboard" spec="^2.0.5" />
-    <plugin name="cordova-plugin-googleplus" spec="^5.3.1">
+    <plugin name="cordova-plugin-statusbar" spec="^2.4.2" />
+    <plugin name="cordova-plugin-device" spec="^2.0.2" />
+    <plugin name="cordova-plugin-splashscreen" spec="^5.0.2" />
+    <plugin name="cordova-plugin-ionic-webview" spec="^2.2.0" />
+    <plugin name="cordova-plugin-ionic-keyboard" spec="^2.1.3" />
+    <plugin name="cordova-plugin-googleplus" spec="^5.3.2">
         <variable name="REVERSED_CLIENT_ID" value="com.googleusercontent.apps.271111022906-ef7dt2blchkpfctovuq57e7uag5s2bgf" />
     </plugin>
-    <plugin name="cordova-plugin-facebook4" spec="^2.4.0">
+    <plugin name="cordova-plugin-facebook4" spec="^2.5.0">
         <variable name="APP_ID" value="1795511067200730" />
         <variable name="APP_NAME" value="blue_on" />
         <variable name="ANDROID_SDK_VERSION" value="4.+" />
+        <variable name="FACEBOOK_ANDROID_SDK_VERSION" value="4.+" />
     </plugin>
-    <plugin name="com.unarin.cordova.beacon" spec="~3.7.0" />
+    <plugin name="com.unarin.cordova.beacon" spec="^3.7.0" />
     <plugin name="cordova-plugin-local-notification" spec="^0.9.0-beta.2" />
-    <plugin name="cordova-plugin-background-mode" spec="https://github.com/katzer/cordova-plugin-background-mode.git" />
+    <plugin name="cordova-plugin-background-mode" spec="git+https://github.com/katzer/cordova-plugin-background-mode.git" />
     <plugin name="cordova-plugin-inappbrowser" spec="^3.0.0" />
     <plugin name="cordova-sqlite-storage" spec="2.5.0" />
     <plugin name="cordova-open-native-settings" spec="1.5.1" />
+    <plugin name="phonegap-plugin-push" spec="2.2.3">
+        <variable name="ANDROID_SUPPORT_V13_VERSION" value="27.+" />
+        <variable name="FCM_VERSION" value="11.8.0" />
+    </plugin>
+    <plugin name="cordova-plugin-whitelist" spec="^1.3.3" />
     <engine name="ios" spec="4.5.5" />
-    <engine name="android" spec="7.0.0" />
+    <engine name="android" spec="7.1.2" />
 </widget>

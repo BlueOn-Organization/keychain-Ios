@@ -27,7 +27,7 @@ export class NotificationToggleComponent {
     }
 
   }
-  on() {
+  public on() {
     this.storage.set('beacon-watching', true).then(()=>{
       this.enabled = true;
       this.backgroundMode.enable();

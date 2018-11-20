@@ -1,0 +1,129 @@
+{
+  "project_info": {
+    "project_number": "271111022906",
+    "firebase_url": "https://blueon-dbf11.firebaseio.com",
+    "project_id": "blueon-dbf11",
+    "storage_bucket": "blueon-dbf11.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:271111022906:android:93c887d1b3f019f0",
+        "android_client_info": {
+          "package_name": "eduyy.beacons.blueon.android"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "271111022906-e9q5nihmalrf2msf36uanahvnsl5hb8b.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "eduyy.beacons.blueon.android",
+            "certificate_hash": "197573bfbf1af01822591e0d63b110e773b51ffe"
+          }
+        },
+        {
+          "client_id": "271111022906-iesecpl4r144tv7un44tsbf7g7uffgsd.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "eduyy.beacons.blueon.android",
+            "certificate_hash": "82f6050bec2b7904a70e15404f5bf86f71bf0a9a"
+          }
+        },
+        {
+          "client_id": "271111022906-samhssoaovo3bdukkv5b47p7j1mhrb37.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDUeOC21CA093ySYYIM-XDetqdthBvjlkM"
+        }
+      ],
+      "services": {
+        "analytics_service": {
+          "status": 1
+        },
+        "appinvite_service": {
+          "status": 2,
+          "other_platform_oauth_client": [
+            {
+              "client_id": "271111022906-samhssoaovo3bdukkv5b47p7j1mhrb37.apps.googleusercontent.com",
+              "client_type": 3
+            },
+            {
+              "client_id": "271111022906-702ref4if9fpm08m2mjibout3gkqgd4v.apps.googleusercontent.com",
+              "client_type": 2,
+              "ios_info": {
+                "bundle_id": "com.eduyy.blueon.scan"
+              }
+            }
+          ]
+        },
+        "ads_service": {
+          "status": 2
+        }
+      }
+    },
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:271111022906:android:e0658e40ffbf6475",
+        "android_client_info": {
+          "package_name": "eduyy.beacons.blueon.scan"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "271111022906-dm9f8q467qke5hb89qkberkf276cj4c7.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "eduyy.beacons.blueon.scan",
+            "certificate_hash": "197573bfbf1af01822591e0d63b110e773b51ffe"
+          }
+        },
+        {
+          "client_id": "271111022906-g2ojnbeojtsef34cs0cg83gd2e4jn2ti.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "eduyy.beacons.blueon.scan",
+            "certificate_hash": "ad16d7ddfecd77571570c94a65a320be5152cbf6"
+          }
+        },
+        {
+          "client_id": "271111022906-samhssoaovo3bdukkv5b47p7j1mhrb37.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDUeOC21CA093ySYYIM-XDetqdthBvjlkM"
+        }
+      ],
+      "services": {
+        "analytics_service": {
+          "status": 1
+        },
+        "appinvite_service": {
+          "status": 2,
+          "other_platform_oauth_client": [
+            {
+              "client_id": "271111022906-samhssoaovo3bdukkv5b47p7j1mhrb37.apps.googleusercontent.com",
+              "client_type": 3
+            },
+            {
+              "client_id": "271111022906-702ref4if9fpm08m2mjibout3gkqgd4v.apps.googleusercontent.com",
+              "client_type": 2,
+              "ios_info": {
+                "bundle_id": "com.eduyy.blueon.scan"
+              }
+            }
+          ]
+        },
+        "ads_service": {
+          "status": 2
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

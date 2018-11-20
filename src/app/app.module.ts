@@ -13,7 +13,6 @@ import { Facebook } from '@ionic-native/facebook';
 import { GooglePlus } from '@ionic-native/google-plus';
 import { IBeacon } from '@ionic-native/ibeacon';
 import { InAppBrowser } from '@ionic-native/in-app-browser';
-//import { BLE } from '@ionic-native/ble'
 import { LocalNotifications } from '@ionic-native/local-notifications';
 import { OpenNativeSettings } from "@ionic-native/open-native-settings";
 import { BackgroundMode } from '@ionic-native/background-mode';
@@ -21,6 +20,7 @@ import { BeaconsStorage } from '../providers/beacons-storage/beacons-storage';
 import { BeaconMonitorProvider } from '../providers/beacon-monitor/beacon-monitor';
 import { BeaconStalkerProvider } from '../providers/beacon-stalker/beacon-stalker';
 import { ComponentsModule } from '../components/components.module';
+import { Push } from '@ionic-native/push';
 
 import { MyApp } from './app.component';
 import { HomePage } from '../pages/home/home';
@@ -43,7 +43,9 @@ const firebaseConfig = {
   imports: [
     BrowserModule,
     IonicModule.forRoot(MyApp),
-    IonicStorageModule.forRoot(),
+    IonicStorageModule.forRoot({
+      name: '__blocalizador'
+    }),
     AngularFireModule.initializeApp(firebaseConfig),
     AngularFireAuthModule,
     AngularFirestoreModule.enablePersistence(),
@@ -64,11 +66,11 @@ const firebaseConfig = {
     {provide: ErrorHandler, useClass: IonicErrorHandler},
     LocalNotifications,
     InAppBrowser,
-    //BLE,
     BackgroundMode,
     OpenNativeSettings,
     BeaconMonitorProvider,
     BeaconStalkerProvider,
+    Push,
   ]
 })
 export class AppModule {}

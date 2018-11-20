@@ -7,7 +7,7 @@ export class BeaconsStorage {
   private beacons: Beacon[];
   private loaded: boolean;
 
-  constructor(public storage: Storage) {
+  constructor(private storage: Storage) {
     this.beacons = [];
     this.loaded = false;
   }
@@ -52,8 +52,11 @@ export class BeaconsStorage {
     return this.beacons.findIndex(beacon => beacon.cid === cid);
   }
 
-  private overrieStorage() {
-    this.storage.set('beacons', this.beacons);
+  private async overrieStorage() {
+    console.log(this.storage.driver)
+    await this.storage.set('beacons', this.beacons)
+    .then(() =>console.log('Guardado Correctamente'))
+    .catch(() => console.log('Error Guardando'))
   }
 
 }

@@ -9,14 +9,14 @@ import {url} from "../../app/uuid.config";
 import { BackgroundMode } from '@ionic-native/background-mode';
 import { BeaconStalkerProvider } from '../../providers/beacon-stalker/beacon-stalker';
 import {OpenNativeSettings} from "@ionic-native/open-native-settings";
+import {BeaconsStorage} from "../../providers/beacons-storage/beacons-storage";
+
 
 @Component({
   selector: 'page-home',
   templateUrl: 'home.html'
 })
 export class HomePage {
-
-
   constructor(
     public navCtrl: NavController,
     private ibeacon: IBeacon,
@@ -29,53 +29,54 @@ export class HomePage {
     private stalker: BeaconStalkerProvider,
     public platform: Platform,
     private openNativeSettings: OpenNativeSettings,
-  ) {}
+    private beaconsStorage: BeaconsStorage,
+  ) {
 
-  ionViewWillLoad() {
-      this.checkBluetoothEnabled();
   }
 
-    checkBluetoothEnabled() {
-        this.ibeacon.isBluetoothEnabled().then(enabled => {
-            if (!enabled) {
-                if(this.platform.is('android')){
-                    this.alertAndroid();
-                }else{
-                    this.alertIos();
-                }
-            }
-        });
-    }
-    alertAndroid(){
-        this.alert.create({
-            enableBackdropDismiss: false,
-            subTitle: 'El Bluetooth está desactivado, debes activarlo para poder continuar.',
-            buttons: [{
-                text: 'Activar',
-                role: 'cancel',
-                handler: () => this.openSettings()
-            }]
-        }).present();
-    }
+  ionViewWillLoad() {
+    this.checkBluetoothEnabled();
+    this.beaconsStorage.load();
+  }
 
-    alertIos(){
-        this.alert.create({
-            enableBackdropDismiss: false,
-            subTitle: 'El Bluetooth está desactivado, debes activarlo para poder continuar.',
-            buttons: [{
-                text: 'Validar',
-                role: 'cancel',
-                handler: () => this.checkBluetoothEnabled()
-            }]
-        }).present();
-    }
+  checkBluetoothEnabled() {
+      this.ibeacon.isBluetoothEnabled().then(enabled => {
+          if (!enabled) {
+              if(this.platform.is('android')){
+                  this.alertAndroid();
+              }else{
+                  this.alertIos();
+              }
+          }
+      });
+  }
+  alertAndroid(){
+      this.alert.create({
+          enableBackdropDismiss: false,
+          subTitle: 'El Bluetooth está desactivado, debes activarlo para poder continuar.',
+          buttons: [{
+              text: 'Activar',
+              role: 'cancel',
+              handler: () => this.openSettings()
+          }]
+      }).present();
+  }
 
-    openSettings(){
-        this.openNativeSettings.open("bluetooth");
-    }
+  alertIos(){
+      this.alert.create({
+          enableBackdropDismiss: false,
+          subTitle: 'El Bluetooth está desactivado, debes activarlo para poder continuar.',
+          buttons: [{
+              text: 'Validar',
+              role: 'cancel',
+              handler: () => this.checkBluetoothEnabled()
+          }]
+      }).present();
+  }
 
-
-
+  openSettings(){
+      this.openNativeSettings.open("bluetooth");
+  }
   search() {
     this.navCtrl.push('NewDeviceListPage');
   }
