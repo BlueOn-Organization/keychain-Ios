@@ -10,6 +10,8 @@ import { BackgroundMode } from '@ionic-native/background-mode';
 import { BeaconStalkerProvider } from '../../providers/beacon-stalker/beacon-stalker';
 import {OpenNativeSettings} from "@ionic-native/open-native-settings";
 import {BeaconsStorage} from "../../providers/beacons-storage/beacons-storage";
+import { Push, PushObject, PushOptions } from '@ionic-native/push';
+
 
 
 @Component({
@@ -30,13 +32,18 @@ export class HomePage {
     public platform: Platform,
     private openNativeSettings: OpenNativeSettings,
     private beaconsStorage: BeaconsStorage,
+    private push: Push
   ) {
-
+    
   }
 
   ionViewWillLoad() {
     this.checkBluetoothEnabled();
     this.beaconsStorage.load();
+  }
+
+  ionViewDidLoad(){
+    this.pushSetup();
   }
 
   checkBluetoothEnabled() {
@@ -103,5 +110,31 @@ export class HomePage {
   link(){
     const browser = this.iab.create(url);
     browser.show();
+  }
+
+  pushSetup(){
+    // to check if we have permissio
+    const options: PushOptions = {
+      android: {
+        senderID:'271111022906'
+      },
+      ios: {
+        alert: 'true',
+        badge: true,
+        sound: 'false'
+      }
+   };
+
+   const pushObject: PushObject = this.push.init(options);
+   
+   pushObject.on('notification').subscribe((notification: any) => console.log('Received a notification', notification));
+   
+   pushObject.on('registration').subscribe((registration: any) => {
+     console.log('Device registered', registration);
+     pushObject.subscribe('blueon-localizador').then(()=>console.log('topic: blueon-localizador'))
+    });
+    
+   pushObject.on('error').subscribe(error => console.error('Error with Push plugin', error));
+
   }
 }

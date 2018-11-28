@@ -75,7 +75,7 @@ export class LoginPage {
     if (this.platform.is('cordova')) {
       return this.fb.login(['email', 'public_profile']).then(res => {
         const facebookCredential = firebase.auth.FacebookAuthProvider.credential(res.authResponse.accessToken);
-        return firebase.auth().signInWithCredential(facebookCredential)
+        return firebase.auth().signInAndRetrieveDataWithCredential(facebookCredential)
           .then(result =>{
             this.storage.set('introShown', true);
             this.navCtrl.setRoot(HomePage, {}, {
@@ -113,7 +113,7 @@ export class LoginPage {
           'offline': false,
           'scopes': 'profile email'
         });
-        return await this.afAuth.auth.signInWithCredential(firebase.auth.GoogleAuthProvider.credential(gplusUser.idToken))
+        return await this.afAuth.auth.signInAndRetrieveDataWithCredential(firebase.auth.GoogleAuthProvider.credential(gplusUser.idToken))
           .then(result =>{
             this.storage.set('introShown', true);
             this.navCtrl.setRoot(HomePage, {}, {

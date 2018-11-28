@@ -5,7 +5,7 @@ import { SplashScreen } from '@ionic-native/splash-screen';
 import { Storage } from '@ionic/storage';
 import { BackgroundMode } from '@ionic-native/background-mode';
 import { HomePage } from '../pages/home/home';
-import { Push, PushObject, PushOptions } from '@ionic-native/push';
+import { Push } from '@ionic-native/push';
 
 
 @Component({
@@ -26,7 +26,7 @@ export class MyApp {
     platform.ready().then(() => {
       statusBar.overlaysWebView(false);
       statusBar.backgroundColorByHexString('#990066');
-      this.pushSetup();
+      
       splashScreen.hide();
 
       if(platform.is("android")){
@@ -44,6 +44,15 @@ export class MyApp {
           });
       }
     });
+
+    this.push.hasPermission()
+    .then((res: any) => {
+      if (res.isEnabled) {
+        console.log('We have permission to send push notifications');
+      } else {
+        console.log('We do not have permission to send push notifications');
+      }
+    });
     storage.get('introShown').then(result => {
       console.log('introShown' + result);
       if (result) {
@@ -53,38 +62,5 @@ export class MyApp {
        this.rootPage = 'LoginPage';
       }
     });
-  }
-
-  pushSetup(){
-    // to check if we have permission
-    this.push.hasPermission()
-    .then((res: any) => {
-      if (res.isEnabled) {
-        console.log('We have permission to send push notifications');
-      } else {
-        console.log('We do not have permission to send push notifications');
-      }
-    });
-
-
-    const options: PushOptions = {
-      android: {
-        senderID:'271111022906'
-      },
-      ios: {
-          alert: 'true',
-          badge: true,
-          sound: 'false'
-      }
-   };
-
-   const pushObject: PushObject = this.push.init(options);
-   
-   
-   pushObject.on('notification').subscribe((notification: any) => console.log('Received a notification', notification));
-   
-   pushObject.on('registration').subscribe((registration: any) => console.log('Device registered', registration));
-   
-   pushObject.on('error').subscribe(error => console.error('Error with Push plugin', error));
   }
 }
