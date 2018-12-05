@@ -148,4 +148,9 @@ export class LoginPage {
     browser.show();
   }
 
+  verMas(){
+    this.navCtrl.push('TerminosPage');
+
+  }
+
 }
