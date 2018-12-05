@@ -26,10 +26,11 @@ export interface User {
   selector: 'page-login',
   templateUrl: 'login.html',
 })
+
 export class LoginPage {
 
   user = {} as User;
-
+  acept:boolean = false;
 
   constructor(
     public navCtrl: NavController,

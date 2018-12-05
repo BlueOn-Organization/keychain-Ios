@@ -1,0 +1,22 @@
+page-terminos {
+  box-shadow: 0 2px 6px 0 rgba(34, 34, 34, 0.6), 0 4px 5px rgba(0, 0, 0, 0.1);
+  .toolbar-title {
+    padding: 0 !important;
+    color: white;
+  }
+
+  .scroll-content{
+    display: flex;
+    flex-direction: column;
+    align-content: stretch;
+    // padding-top: 5px !important;
+    background-image: url('../assets/imgs/Flogin.jpg');
+    background-size: 100% 100%;
+    text-align: center;
+    color: white;
+  }
+  #texto{
+    text-align: justify;
+    margin-bottom: 70px;
+  }
+}
