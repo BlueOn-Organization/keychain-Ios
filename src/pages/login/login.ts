@@ -26,10 +26,11 @@ export interface User {
   selector: 'page-login',
   templateUrl: 'login.html',
 })
+
 export class LoginPage {
 
   user = {} as User;
-
+  acept:boolean = false;
 
   constructor(
     public navCtrl: NavController,
@@ -145,6 +146,11 @@ export class LoginPage {
   link(){
     const browser = this.iab.create(url);
     browser.show();
+  }
+
+  verMas(){
+    this.navCtrl.push('TerminosPage');
+
   }
 
 }

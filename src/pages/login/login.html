@@ -12,7 +12,8 @@
   <p id="text1">Bienvenidos a Blue-On</p>
 
   <p id="text2">¿Eres nuevo? Regístrate</p>
-  <button ion-button class="btn_face" (click)="facebook()">Continua con Facebook</button>
-  <button ion-button class="btn_twiter" (click)="twiter()">Continua con Google</button>
+  <button ion-button class="btn_face" (click)="facebook()" [disabled]="!acept">Continua con Facebook</button>
+  <button ion-button class="btn_twiter" (click)="google()" [disabled]="!acept">Continua con Google</button>
+  <h6><ion-checkbox [(ngModel)]="acept" ></ion-checkbox> <a (click)="verMas()">Acepto terminos y condiciones.</a></h6>
   <a class="btn_link" (click)="link()"></a>
 </ion-content>
