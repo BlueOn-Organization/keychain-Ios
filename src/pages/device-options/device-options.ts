@@ -2,6 +2,8 @@ import { Component } from '@angular/core';
 import { IonicPage, NavController, NavParams, AlertController } from 'ionic-angular';
 import { Beacon } from '../../app/beacon.model';
 import { BeaconsStorage } from '../../providers/beacons-storage/beacons-storage';
+import { TranslateService } from '@ngx-translate/core';
+
 
 /**
  * Generated class for the DeviceOptionsPage page.
@@ -22,12 +24,14 @@ export class DeviceOptionsPage {
     public navCtrl: NavController, 
     public navParams: NavParams,
     private alertCtrl: AlertController,
-    private storage: BeaconsStorage
+    private storage: BeaconsStorage,
+    private translate:TranslateService
   ) {
     this.beacon = <Beacon>this.navParams.get('beacon');
   }
 
-  ionViewDidLoad() {    
+  ionViewDidLoad() {
+
   }
 
   guardar() {
@@ -37,15 +41,15 @@ export class DeviceOptionsPage {
 
   eliminar() {
     this.alertCtrl.create({
-      subTitle: 'Estas seguro de eliminar el dispositivo?',
+      subTitle: this.translate.instant('search.confirm'),
       enableBackdropDismiss: false,
       buttons: [
         {
-          text: 'No',
+          text: this.translate.instant('search.no'),
           role: 'cancel'
         },
         {
-          text: 'Si',
+          text: this.translate.instant('search.yes'),
           handler: data => {
             this.storage.delete(this.beacon);
             this.navCtrl.pop();

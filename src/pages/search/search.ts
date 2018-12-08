@@ -2,6 +2,7 @@ import { Component, NgZone } from '@angular/core';
 import { IonicPage, NavController, NavParams } from 'ionic-angular';
 import { BeaconMonitorProvider } from '../../providers/beacon-monitor/beacon-monitor';
 import { Beacon } from '../../app/beacon.model';
+import { TranslateService } from '@ngx-translate/core';
 
 @IonicPage()
 @Component({
@@ -12,7 +13,7 @@ export class SearchPage {
   distance: number = -1;
   beacon_name: string;
   gif: string = '';
-  label: string = 'Buscando...';
+  label: string = this.translate.instant('search.searching');
   label2: string = '';
   fuera: boolean;
   negativecontroller: number = 0;
@@ -21,7 +22,8 @@ export class SearchPage {
     public navCtrl: NavController,
     public navParams: NavParams,
     public monitor: BeaconMonitorProvider,
-    private ngzone: NgZone
+    private ngzone: NgZone,
+    private translate:TranslateService
   ) {
     this.gif = 'assets/imgs/gifb.gif';
   }
@@ -40,7 +42,7 @@ export class SearchPage {
         if (distance < 0) {
           if (this.negativecontroller < -10) {
             this.gif = 'assets/imgs/giff.gif';
-            this.label = 'Fuera de rango';
+            this.label = this.translate.instant('search.out');
             this.label2 = '';
             this.fuera = true;
           }
@@ -54,22 +56,22 @@ export class SearchPage {
 
           if (this.distance < 1) {
             this.gif = 'assets/imgs/gif1.gif';
-            this.label = 'Muy cerca';
-            this.label2 = `Estas a menos de 1 mt`;
+            this.label = this.translate.instant('search.verynear');
+            this.label2 = `${this.translate.instant('search.less')} 1 mt`;
           }else if (this.distance < 2) {
             this.gif = 'assets/imgs/gif1.gif';
-            this.label = 'Muy cerca';
-            this.label2 = `Estas a menos de ${Math.round(distance)} mts`;
+            this.label = this.translate.instant('search.verynear');
+            this.label2 = `${this.translate.instant('search.less')} ${Math.round(distance)} mts`;
           }
           else if (this.distance <= 4) {
             this.gif = 'assets/imgs/gif2.gif';
-            this.label = 'Cerca';
-            this.label2 = `Estas a menos de ${Math.round(distance)} mts`;
+            this.label = this.translate.instant('search.near');
+            this.label2 = `${this.translate.instant('search.less')} ${Math.round(distance)} mts`;
           }
           else {
             this.gif = 'assets/imgs/gif3.gif';
-            this.label = 'Lejos';
-            this.label2 = `Estas a mas de ${Math.round(distance)} mts`;
+            this.label = this.translate.instant('search.far');
+            this.label2 = `${this.translate.instant('search.more')} ${Math.round(distance)} mts`;
           }
           this.distance = distance;
         }

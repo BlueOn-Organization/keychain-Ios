@@ -1,0 +1,49 @@
+{
+  "home":{
+    "hello":"¡Hola!",
+    "addnew":{
+      "name":"Agregar nuevo",
+      "add":"Agregar",
+      "detected":"Localizador detectado",
+      "accept":"Aceptar",
+      "cancel":"Cancelar",
+      "discard":"Localizador descartado"
+    },
+    "mykeys":{
+      "name":"Mis localizadores"
+    },
+    "tutorial":{
+      "name":"Tutorial",
+      "start":"Empezar ahora"
+    },
+    "name":"Localizadores"
+  },
+  "login":{
+    "facebook":"Continuar con Facebook",
+    "google":"Continuar con Google",
+    "new":"¿Eres nuevo? Regístrate",
+    "welcome":"Bienvenidos a Blue-On",
+    "terms":"Acepto terminos y condiciones"
+  },
+  "options":{
+    "name":"Opciones",
+    "rename":"Renombrar localizador",
+    "select":"Selecionar el tiempo entre alertas",
+    "save":"Guardar cambios",
+    "remove":"Eliminar",
+    "never":"Nunca",
+    "confirm":"¿Estas seguro de eliminar el localizador?",
+    "yes":"Si",
+    "no":"No"
+  },
+  "search":{
+    "searchto":"Estas buscando:",
+    "searching":"Buscando...",
+    "out":"Fuera de rango",
+    "less":"Estas a menos de",
+    "more":"Estas a mas de",
+    "near":"Cerca",
+    "verynear":"Muy cerca",
+    "far":"Lejos"
+  }
+}

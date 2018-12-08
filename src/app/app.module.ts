@@ -12,6 +12,7 @@ import { AngularFirestoreModule } from 'angularfire2/firestore';
 import { Facebook } from '@ionic-native/facebook';
 import { GooglePlus } from '@ionic-native/google-plus';
 import { IBeacon } from '@ionic-native/ibeacon';
+import { Globalization } from '@ionic-native/globalization';
 import { InAppBrowser } from '@ionic-native/in-app-browser';
 import { LocalNotifications } from '@ionic-native/local-notifications';
 import { OpenNativeSettings } from "@ionic-native/open-native-settings";
@@ -21,9 +22,17 @@ import { BeaconMonitorProvider } from '../providers/beacon-monitor/beacon-monito
 import { BeaconStalkerProvider } from '../providers/beacon-stalker/beacon-stalker';
 import { ComponentsModule } from '../components/components.module';
 import { Push } from '@ionic-native/push';
+import { TranslateModule, TranslateLoader } from '@ngx-translate/core';
+import { TranslateHttpLoader } from '@ngx-translate/http-loader';
 
 import { MyApp } from './app.component';
 import { HomePage } from '../pages/home/home';
+import {HttpClient,HttpClientModule} from "@angular/common/http";
+import { HttpModule, Http } from '@angular/http';
+
+export function createTranslateLoader(http: HttpClient) {
+    return new TranslateHttpLoader(http, './assets/i18n/', '.json');
+}
 
 const firebaseConfig = {
   apiKey: "AIzaSyAq6P4eZJLp6cj1_zseF4N8Ouxj5kFZSWQ",
@@ -42,7 +51,15 @@ const firebaseConfig = {
   ],
   imports: [
     BrowserModule,
+    HttpClientModule,
     IonicModule.forRoot(MyApp),
+    TranslateModule.forRoot({
+        loader: {
+            provide: TranslateLoader,
+            useFactory: (createTranslateLoader),
+            deps: [HttpClient]
+        }
+    }),
     IonicStorageModule.forRoot({
       name: '__blocalizador'
     }),
@@ -50,6 +67,7 @@ const firebaseConfig = {
     AngularFireAuthModule,
     AngularFirestoreModule.enablePersistence(),
     ComponentsModule,
+
   ],
   bootstrap: [IonicApp],
   entryComponents: [
@@ -71,6 +89,8 @@ const firebaseConfig = {
     BeaconMonitorProvider,
     BeaconStalkerProvider,
     Push,
+    Globalization,
+    HttpClientModule,
   ]
 })
 export class AppModule {}

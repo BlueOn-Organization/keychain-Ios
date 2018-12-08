@@ -6,7 +6,7 @@
 -->
 <ion-header no-border>
   <ion-navbar transparent>
-    <ion-title>Tutorial</ion-title>
+    <ion-title>{{ 'home.tutorial.name' | translate }}</ion-title>
   </ion-navbar>
 </ion-header>
 
@@ -29,7 +29,7 @@
     </ion-slide>
     <ion-slide>
       <button ion-button icon-end large clear id="btn" (click)="startApp()">
-        Empezar ahora
+        {{ 'home.tutorial.start' | translate }}
         <ion-icon name="arrow-forward"></ion-icon>
       </button>
       <img src="assets/imgs/tuto6.jpg" class="slide-image"/>

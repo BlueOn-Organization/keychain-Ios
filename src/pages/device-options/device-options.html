@@ -1,6 +1,6 @@
 <ion-header no-border>
   <ion-navbar transparent>
-    <ion-title color="light">Opciones del dispositivo</ion-title>
+    <ion-title color="light">{{ 'options.name' | translate }}</ion-title>
   </ion-navbar>
 </ion-header>
 
@@ -8,7 +8,7 @@
   <ion-list>
 
     <ion-item class="imput-has-focus">
-      <ion-label color="light" stacked>Renombrar el dispositivo</ion-label>
+      <ion-label color="light" stacked>{{ 'options.rename' | translate }}</ion-label>
       <ion-input [(ngModel)]="beacon.nombre" placeholder="nuevo nombre"></ion-input>
     </ion-item>
     <br>
@@ -17,11 +17,11 @@
     <br>
     <br>
 
-    <ion-label color="light" stacked >Seleccione el tiempo de alerta</ion-label>
+    <ion-label color="light" stacked >{{ 'options.select' | translate }}</ion-label>
     <br>
     <!-- <ion-item> -->
         <ion-segment [(ngModel)]="beacon.tick" mode="ios" id="timer-tick">
-          <ion-segment-button outline value="-1" id="na">nunca</ion-segment-button>
+          <ion-segment-button outline value="-1" id="na">{{ 'options.never' | translate }}</ion-segment-button>
             <ion-segment-button outline value="10" id="a">10s</ion-segment-button>
             <ion-segment-button outline value="30" id="b">30s</ion-segment-button>
             <ion-segment-button outline value="60" id="c">1m</ion-segment-button>
@@ -34,12 +34,12 @@
 
     <button ion-button icon-start block outline color="light" (click)="guardar()">
       <ion-icon name="done-all"></ion-icon>
-      Guardar cambios
+      {{ 'options.save' | translate }}
     </button>
     <br>
     <button ion-button icon-start block outline color="light" (click)="eliminar()">
       <ion-icon name="trash"></ion-icon>
-      Eliminar
+      {{ 'options.remove' | translate }}
     </button>
 
   </ion-list>

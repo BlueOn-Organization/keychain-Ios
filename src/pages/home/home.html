@@ -1,14 +1,14 @@
 <ion-header no-border>
     <ion-navbar transparent>
-    <ion-title>Localizador</ion-title>
+    <ion-title>{{'home.name' | translate}}</ion-title>
   </ion-navbar>
 </ion-header>
 
 <ion-content padding fullscreen>
-  <h1>¡Hola!</h1>
-  <button ion-button color="light" clear (click)="search()">Agregar nuevo</button>
-  <button ion-button color="light" clear (click)="device()">Mis llaveros</button>
-  <button ion-button color="light" clear (click)="tutorial()">Tutorial</button>
+  <h1>{{ 'home.hello' | translate }}</h1>
+  <button ion-button color="light" clear (click)="search()">{{ 'home.addnew.name' | translate }}</button>
+  <button ion-button color="light" clear (click)="device()">{{'home.mykeys.name' | translate}}</button>
+  <button ion-button color="light" clear (click)="tutorial()">{{'home.tutorial.name' | translate}}</button>
 
   <img src="assets/imgs/BtnLog.png" alt="" (click)="logout()">
 
