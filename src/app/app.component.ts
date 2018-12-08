@@ -6,6 +6,10 @@ import { Storage } from '@ionic/storage';
 import { BackgroundMode } from '@ionic-native/background-mode';
 import { HomePage } from '../pages/home/home';
 import { Push } from '@ionic-native/push';
+import { TranslateService } from '@ngx-translate/core';
+import { Globalization } from '@ionic-native/globalization';
+
+
 
 
 @Component({
@@ -21,14 +25,16 @@ export class MyApp {
     splashScreen: SplashScreen,
     storage: Storage,
     backgroundMode: BackgroundMode,
-    private push: Push
+    private push: Push,
+    private translateService: TranslateService,
+    private globalization: Globalization,
   ) {
     platform.ready().then(() => {
       statusBar.overlaysWebView(false);
       statusBar.backgroundColorByHexString('#990066');
       
       splashScreen.hide();
-
+      this.initTranslate();
       if(platform.is("android")){
           platform.registerBackButtonAction(() => {
               let nav = this.app.getActiveNav();
@@ -63,4 +69,16 @@ export class MyApp {
       }
     });
   }
+
+    private initTranslate() {
+        this.translateService.setDefaultLang('es');
+        this.globalization.getPreferredLanguage()
+            .then(res => {
+                let len = res.value.split('-');
+                this.translateService.use(len[0]); // Set your language here
+
+            })
+            .catch(e => console.log(e));
+
+    }
 }

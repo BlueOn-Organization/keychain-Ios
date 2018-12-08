@@ -1,7 +1,6 @@
 import { Component } from '@angular/core';
 import {NavController, AlertController, Platform} from 'ionic-angular';
 import { IBeacon } from '@ionic-native/ibeacon';
-import { PopoverController } from 'ionic-angular';
 import {AngularFireAuth} from "angularfire2/auth";
 import {Storage} from "@ionic/storage";
 import { InAppBrowser } from '@ionic-native/in-app-browser';
@@ -11,6 +10,8 @@ import { BeaconStalkerProvider } from '../../providers/beacon-stalker/beacon-sta
 import {OpenNativeSettings} from "@ionic-native/open-native-settings";
 import {BeaconsStorage} from "../../providers/beacons-storage/beacons-storage";
 import { Push, PushObject, PushOptions } from '@ionic-native/push';
+import { AngularFirestore, AngularFirestoreCollection} from 'angularfire2/firestore';
+import { Globalization } from '@ionic-native/globalization';
 
 
 
@@ -19,12 +20,14 @@ import { Push, PushObject, PushOptions } from '@ionic-native/push';
   templateUrl: 'home.html'
 })
 export class HomePage {
+    private beaconCollection: AngularFirestoreCollection<any>;
+
   constructor(
+    private afs: AngularFirestore,
     public navCtrl: NavController,
     private ibeacon: IBeacon,
     public storage: Storage,
     private alert: AlertController,
-    public popoverCtrl: PopoverController,
     private afAuth: AngularFireAuth,
     private iab: InAppBrowser,
     private backgroundMode: BackgroundMode,
@@ -32,14 +35,17 @@ export class HomePage {
     public platform: Platform,
     private openNativeSettings: OpenNativeSettings,
     private beaconsStorage: BeaconsStorage,
-    private push: Push
+    private push: Push,
+    private globalization: Globalization,
   ) {
-    
+      this.beaconCollection = this.afs.collection('Beacons');
   }
+
 
   ionViewWillLoad() {
     this.checkBluetoothEnabled();
     this.beaconsStorage.load();
+
   }
 
   ionViewDidLoad(){
@@ -137,4 +143,5 @@ export class HomePage {
    pushObject.on('error').subscribe(error => console.error('Error with Push plugin', error));
 
   }
+
 }

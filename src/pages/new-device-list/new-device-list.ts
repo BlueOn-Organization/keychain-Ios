@@ -5,6 +5,7 @@ import { BeaconsStorage } from '../../providers/beacons-storage/beacons-storage'
 import { Beacon } from '../../app/beacon.model';
 import {InAppBrowser} from "@ionic-native/in-app-browser";
 import {url} from "../../app/uuid.config";
+import { TranslateService } from '@ngx-translate/core';
 
 @IonicPage()
 @Component({
@@ -20,7 +21,8 @@ export class NewDeviceListPage {
     private ngzone: NgZone,
     private navCtrl: NavController,
     private alertCtrl: AlertController,
-    private iab: InAppBrowser
+    private iab: InAppBrowser,
+    private translate:TranslateService
   ) { }
 
   ionViewDidLoad() {
@@ -48,8 +50,8 @@ export class NewDeviceListPage {
 
   public saveDevice(beacon: Beacon) {
     let prompt = this.alertCtrl.create({
-      title: 'Agregar',
-      subTitle: 'dispositivo detectado:',
+      title: this.translate.instant('home.addnew.add'),
+      subTitle: this.translate.instant('home.addnew.detected'),
       enableBackdropDismiss: false,
       inputs: [
         {
@@ -59,14 +61,14 @@ export class NewDeviceListPage {
       ],
       buttons: [
         {
-          text: 'Cancelar',
+          text: this.translate.instant('home.addnew.cancel'),
           role: 'cancel',
           handler: data => {
-            this.alertCtrl.create({ title: 'Dispositivo descartado' }).present();
+            this.alertCtrl.create({ title: this.translate.instant('home.addnew.discard')}).present();
           }
         },
         {
-          text: 'Aceptar',
+          text: this.translate.instant('home.addnew.accept'),
           handler: data => {
             if (data.name == '') {
               return false;

@@ -8,12 +8,12 @@
 
 <ion-content padding fullscreen>
 
-  <h1>¡Hola!</h1>
-  <p id="text1">Bienvenidos a Blue-On</p>
+  <h1>{{ 'hello' | translate }}</h1>
+  <p id="text1">{{ 'login.welcome' | translate }}</p>
 
-  <p id="text2">¿Eres nuevo? Regístrate</p>
-  <button ion-button class="btn_face" (click)="facebook()" [disabled]="!acept">Continua con Facebook</button>
-  <button ion-button class="btn_twiter" (click)="google()" [disabled]="!acept">Continua con Google</button>
-  <h6><ion-checkbox [(ngModel)]="acept" ></ion-checkbox> <a (click)="verMas()">Acepto terminos y condiciones.</a></h6>
+  <p id="text2">{{ 'login.new' | translate }}</p>
+  <button ion-button class="btn_face" (click)="facebook()" [disabled]="!acept">{{ 'login.facebook' | translate }}</button>
+  <button ion-button class="btn_twiter" (click)="google()" [disabled]="!acept">{{ 'login.google' | translate }}</button>
+  <h6><ion-checkbox [(ngModel)]="acept" ></ion-checkbox> <a (click)="verMas()">{{ 'login.terms' | translate }}</a></h6>
   <a class="btn_link" (click)="link()"></a>
 </ion-content>
