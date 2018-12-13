@@ -104,7 +104,7 @@ export class LoginPage {
   }
 
 
-  async twiter() {
+  async google() {
 
     if (this.platform.is('cordova')) {
       try {
