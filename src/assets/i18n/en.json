@@ -1,49 +1,52 @@
 {
-  "home":{
-    "hello":"¡Hello!",
-    "addnew":{
-      "name":"Add new",
-      "add":"Add",
-      "detected":"Locator detected",
-      "accept":"Accept",
-      "cancel":"Cancel",
-      "discard":"Locator discarded"
+  "home": {
+    "hello": "¡Hello!",
+    "addnew": {
+      "name": "Add new",
+      "add": "Add",
+      "detected": "Locator detected",
+      "accept": "Accept",
+      "cancel": "Cancel",
+      "discard": "Locator discarded"
     },
-    "mykeys":{
-      "name":"My locators"
+    "mykeys": {
+      "name": "My locators"
     },
-    "tutorial":{
-      "name":"Tutorial",
-      "start":"Start now"
+    "tutorial": {
+      "name": "Tutorial",
+      "start": "Start now"
     },
-    "name":"Locators"
+    "name": "Locators"
   },
-  "login":{
-    "facebook":"Continue with Facebook",
-    "google":"Continue with Google",
-    "new":"¿You are new? Sign up",
-    "welcome":"Welcome to Blue-On",
-    "terms":"Accept terms and conditions "
+  "login": {
+    "facebook": "Continue with Facebook",
+    "google": "Continue with Google",
+    "new": "¿You are new? Sign up",
+    "welcome": "Welcome to Blue-On",
+    "terms": "Accept terms and conditions "
   },
-  "options":{
-    "name":"Options",
-    "rename":"Rename locator",
-    "select":"Select the time between alerts",
-    "save":"Save changes",
-    "remove":"Remove",
-    "never":"never",
-    "confirm":"Are you sure to delete the locator?",
-    "yes":"Yes",
-    "no":"No"
+  "options": {
+    "name": "Options",
+    "rename": "Rename locator",
+    "select": "Select the time between alerts",
+    "save": "Save changes",
+    "remove": "Remove",
+    "never": "never",
+    "confirm": "Are you sure to delete the locator?",
+    "yes": "Yes",
+    "no": "No"
   },
-  "search":{
-    "searchto":"You are looking for:",
-    "searching":"Searching...",
-    "out":"Out of range",
-    "less":"You are less than",
-    "more":"You are more than",
-    "near":"Near",
-    "verynear":"Very near",
-    "far":"Far"
+  "search": {
+    "searchto": "You are looking for:",
+    "searching": "Searching...",
+    "out": "Out of range",
+    "less": "You are less than",
+    "more": "You are more than",
+    "near": "Near",
+    "verynear": "Very near",
+    "far": "Far"
+  },
+  "terms": {
+    "name": "Terms and Conditions",
   }
 }
