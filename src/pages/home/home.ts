@@ -1,17 +1,18 @@
+import { User } from './../../utils/user.model';
 import { Component } from '@angular/core';
-import {NavController, AlertController, Platform} from 'ionic-angular';
+import { NavController, AlertController, Platform} from 'ionic-angular';
 import { IBeacon } from '@ionic-native/ibeacon';
-import {AngularFireAuth} from "angularfire2/auth";
-import {Storage} from "@ionic/storage";
+import { AngularFireAuth } from "angularfire2/auth";
+import { Storage} from "@ionic/storage";
 import { InAppBrowser } from '@ionic-native/in-app-browser';
-import {url} from "../../app/uuid.config";
+import { url } from "../../app/uuid.config";
 import { BackgroundMode } from '@ionic-native/background-mode';
 import { BeaconStalkerProvider } from '../../providers/beacon-stalker/beacon-stalker';
-import {OpenNativeSettings} from "@ionic-native/open-native-settings";
-import {BeaconsStorage} from "../../providers/beacons-storage/beacons-storage";
+import { OpenNativeSettings } from "@ionic-native/open-native-settings";
+import { BeaconsStorage } from "../../providers/beacons-storage/beacons-storage";
 import { Push, PushObject, PushOptions } from '@ionic-native/push';
 import { AngularFirestore, AngularFirestoreCollection} from 'angularfire2/firestore';
-import { Globalization } from '@ionic-native/globalization';
+import { TranslateService } from "@ngx-translate/core";
 
 
 
@@ -20,7 +21,8 @@ import { Globalization } from '@ionic-native/globalization';
   templateUrl: 'home.html'
 })
 export class HomePage {
-    private beaconCollection: AngularFirestoreCollection<any>;
+  private usersCollection: AngularFirestoreCollection<any>;
+  private user = {} as User;
 
   constructor(
     private afs: AngularFirestore,
@@ -36,9 +38,10 @@ export class HomePage {
     private openNativeSettings: OpenNativeSettings,
     private beaconsStorage: BeaconsStorage,
     private push: Push,
-    private globalization: Globalization,
+    private translate:TranslateService
+
   ) {
-      this.beaconCollection = this.afs.collection('Beacons');
+    this.usersCollection = this.afs.collection('Users');
   }
 
 
@@ -63,33 +66,35 @@ export class HomePage {
           }
       });
   }
-  alertAndroid(){
+  //this.translate.instant('login.error')
+  private alertAndroid(){
       this.alert.create({
           enableBackdropDismiss: false,
-          subTitle: 'El Bluetooth está desactivado, debes activarlo para poder continuar.',
+          subTitle: this.translate.instant('home.alert'),
           buttons: [{
-              text: 'Activar',
+              text: this.translate.instant('home.activate'),
               role: 'cancel',
               handler: () => this.openSettings()
           }]
       }).present();
   }
 
-  alertIos(){
+  private alertIos(){
       this.alert.create({
           enableBackdropDismiss: false,
-          subTitle: 'El Bluetooth está desactivado, debes activarlo para poder continuar.',
+          subTitle: this.translate.instant('home.alert'),
           buttons: [{
-              text: 'Validar',
+              text: this.translate.instant('home.validate'),
               role: 'cancel',
               handler: () => this.checkBluetoothEnabled()
           }]
       }).present();
   }
 
-  openSettings(){
+  private openSettings(){
       this.openNativeSettings.open("bluetooth");
   }
+
   search() {
     this.navCtrl.push('NewDeviceListPage');
   }
@@ -104,8 +109,12 @@ export class HomePage {
 
   logout(){
     this.storage.set('beacon-watching', false).then(()=>{
+      try{
         this.backgroundMode.disable();
         this.stalker.unWatch();
+      }catch(err){
+        console.log(err)
+      }
     });
     this.afAuth.auth.signOut().then(x=>{
       this.storage.set('introShown', false);
@@ -118,7 +127,7 @@ export class HomePage {
     browser.show();
   }
 
-  pushSetup(){
+  private pushSetup(){
     // to check if we have permissio
     const options: PushOptions = {
       android: {
@@ -136,7 +145,8 @@ export class HomePage {
    pushObject.on('notification').subscribe((notification: any) => console.log('Received a notification', notification));
    
    pushObject.on('registration').subscribe((registration: any) => {
-     console.log('Device registered', registration);
+     this.user.tokenId = registration.registrationId;
+     this.saveUserBD();
      pushObject.subscribe('blueon-localizador').then(()=>console.log('topic: blueon-localizador'))
     });
     
@@ -144,4 +154,14 @@ export class HomePage {
 
   }
 
+  private async saveUserBD() {
+    await this.storage.get("emailUser").then(email=>{
+      if(email != null) {
+        console.log('enter in saveUserBD',email)
+        this.user.email = email;
+        this.usersCollection.doc(email).set(this.user);
+      }
+    });
+
+  }
 }

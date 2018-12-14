@@ -1,6 +1,9 @@
 {
   "home":{
     "hello":"¡Hello!",
+    "activate":"Activate",
+    "alert":"Bluetooth is disabled, you must activate it to continue.",
+    "validate":"Validate",
     "addnew":{
       "name":"Add new",
       "add":"Add",
@@ -23,7 +26,9 @@
     "google":"Continue with Google",
     "new":"¿You are new? Sign up",
     "welcome":"Welcome to Blue-On",
-    "terms":"Accept terms and conditions "
+    "terms":"Accept terms and conditions ",
+    "error":"Error",
+    "tryagain":"Try again or change your option"
   },
   "options":{
     "name":"Options",

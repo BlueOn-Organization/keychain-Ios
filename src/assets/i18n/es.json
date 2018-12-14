@@ -1,6 +1,9 @@
 {
   "home":{
     "hello":"¡Hola!",
+    "activate":"Activar",
+    "alert":"El Bluetooth está desactivado, debes activarlo para poder continuar.",
+    "validate":"Validar",
     "addnew":{
       "name":"Agregar nuevo",
       "add":"Agregar",
@@ -23,7 +26,9 @@
     "google":"Continuar con Google",
     "new":"¿Eres nuevo? Regístrate",
     "welcome":"Bienvenidos a Blue-On",
-    "terms":"Acepto terminos y condiciones"
+    "terms":"Acepto terminos y condiciones",
+    "error":"Error",
+    "tryagain":"Intentalo nuevamente o cambie de opción"
   },
   "options":{
     "name":"Opciones",
