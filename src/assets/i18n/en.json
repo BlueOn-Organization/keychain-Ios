@@ -12,14 +12,14 @@
       "cancel":"Cancel",
       "discard":"Locator discarded"
     },
-    "mykeys":{
-      "name":"My locators"
+    "mykeys": {
+      "name": "My locators"
     },
-    "tutorial":{
-      "name":"Tutorial",
-      "start":"Start now"
+    "tutorial": {
+      "name": "Tutorial",
+      "start": "Start now"
     },
-    "name":"Locators"
+    "name": "Locators"
   },
   "login":{
     "facebook":"Continue with Facebook",
@@ -30,16 +30,16 @@
     "error":"Error",
     "tryagain":"Try again or change your option"
   },
-  "options":{
-    "name":"Options",
-    "rename":"Rename locator",
-    "select":"Select the time between alerts",
-    "save":"Save changes",
-    "remove":"Remove",
-    "never":"never",
-    "confirm":"Are you sure to delete the locator?",
-    "yes":"Yes",
-    "no":"No"
+  "options": {
+    "name": "Options",
+    "rename": "Rename locator",
+    "select": "Select the time between alerts",
+    "save": "Save changes",
+    "remove": "Remove",
+    "never": "never",
+    "confirm": "Are you sure to delete the locator?",
+    "yes": "Yes",
+    "no": "No"
   },
   "search":{
     "searchto":"You are looking for:",

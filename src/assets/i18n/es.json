@@ -12,14 +12,14 @@
       "cancel":"Cancelar",
       "discard":"Localizador descartado"
     },
-    "mykeys":{
-      "name":"Mis localizadores"
+    "mykeys": {
+      "name": "Mis localizadores"
     },
-    "tutorial":{
-      "name":"Tutorial",
-      "start":"Empezar ahora"
+    "tutorial": {
+      "name": "Tutorial",
+      "start": "Empezar ahora"
     },
-    "name":"Localizadores"
+    "name": "Localizadores"
   },
   "login":{
     "facebook":"Continuar con Facebook",
@@ -30,16 +30,16 @@
     "error":"Error",
     "tryagain":"Intentalo nuevamente o cambie de opción"
   },
-  "options":{
-    "name":"Opciones",
-    "rename":"Renombrar localizador",
-    "select":"Selecionar el tiempo entre alertas",
-    "save":"Guardar cambios",
-    "remove":"Eliminar",
-    "never":"Nunca",
-    "confirm":"¿Estas seguro de eliminar el localizador?",
-    "yes":"Si",
-    "no":"No"
+  "options": {
+    "name": "Opciones",
+    "rename": "Renombrar localizador",
+    "select": "Selecionar el tiempo entre alertas",
+    "save": "Guardar cambios",
+    "remove": "Eliminar",
+    "never": "Nunca",
+    "confirm": "¿Estas seguro de eliminar el localizador?",
+    "yes": "Si",
+    "no": "No"
   },
   "search":{
     "searchto":"Estas buscando:",
