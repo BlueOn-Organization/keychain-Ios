@@ -1,13 +1,16 @@
 {
-  "home": {
-    "hello": "¡Hola!",
-    "addnew": {
-      "name": "Agregar nuevo",
-      "add": "Agregar",
-      "detected": "Localizador detectado",
-      "accept": "Aceptar",
-      "cancel": "Cancelar",
-      "discard": "Localizador descartado"
+  "home":{
+    "hello":"¡Hola!",
+    "activate":"Activar",
+    "alert":"El Bluetooth está desactivado, debes activarlo para poder continuar.",
+    "validate":"Validar",
+    "addnew":{
+      "name":"Agregar nuevo",
+      "add":"Agregar",
+      "detected":"Localizador detectado",
+      "accept":"Aceptar",
+      "cancel":"Cancelar",
+      "discard":"Localizador descartado"
     },
     "mykeys": {
       "name": "Mis localizadores"
@@ -18,12 +21,14 @@
     },
     "name": "Localizadores"
   },
-  "login": {
-    "facebook": "Continuar con Facebook",
-    "google": "Continuar con Google",
-    "new": "¿Eres nuevo? Regístrate",
-    "welcome": "Bienvenidos a Blue-On",
-    "terms": "Acepto terminos y condiciones"
+  "login":{
+    "facebook":"Continuar con Facebook",
+    "google":"Continuar con Google",
+    "new":"¿Eres nuevo? Regístrate",
+    "welcome":"Bienvenidos a Blue-On",
+    "terms":"Acepto terminos y condiciones",
+    "error":"Error",
+    "tryagain":"Intentalo nuevamente o cambie de opción"
   },
   "options": {
     "name": "Opciones",
@@ -36,17 +41,17 @@
     "yes": "Si",
     "no": "No"
   },
-  "search": {
-    "searchto": "Estas buscando:",
-    "searching": "Buscando...",
-    "out": "Fuera de rango",
-    "less": "Estas a menos de",
-    "more": "Estas a mas de",
-    "near": "Cerca",
-    "verynear": "Muy cerca",
-    "far": "Lejos"
+  "search":{
+    "searchto":"Estas buscando:",
+    "searching":"Buscando...",
+    "out":"Fuera de rango",
+    "less":"Estas a menos de",
+    "more":"Estas a mas de",
+    "near":"Cerca",
+    "verynear":"Muy cerca",
+    "far":"Lejos"
   },
-  "terms": {
-    "name": "Términos y Condiciones",
+  "notification":{
+    "name":"Notificaciones"
   }
 }

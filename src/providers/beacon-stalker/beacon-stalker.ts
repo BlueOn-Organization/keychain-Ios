@@ -11,7 +11,7 @@ export class BeaconStalkerProvider {
   private nearby_beacons: any;
   private workers: number[] = [];
   private beaconRegion: BeaconRegion;
-  private watching: boolean = false;
+  public watching: boolean = false;
 
   constructor(
     private localNotifications: LocalNotifications,

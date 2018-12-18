@@ -1,13 +1,16 @@
 {
-  "home": {
-    "hello": "¡Hello!",
-    "addnew": {
-      "name": "Add new",
-      "add": "Add",
-      "detected": "Locator detected",
-      "accept": "Accept",
-      "cancel": "Cancel",
-      "discard": "Locator discarded"
+  "home":{
+    "hello":"¡Hello!",
+    "activate":"Activate",
+    "alert":"Bluetooth is disabled, you must activate it to continue.",
+    "validate":"Validate",
+    "addnew":{
+      "name":"Add new",
+      "add":"Add",
+      "detected":"Locator detected",
+      "accept":"Accept",
+      "cancel":"Cancel",
+      "discard":"Locator discarded"
     },
     "mykeys": {
       "name": "My locators"
@@ -18,12 +21,14 @@
     },
     "name": "Locators"
   },
-  "login": {
-    "facebook": "Continue with Facebook",
-    "google": "Continue with Google",
-    "new": "¿You are new? Sign up",
-    "welcome": "Welcome to Blue-On",
-    "terms": "Accept terms and conditions "
+  "login":{
+    "facebook":"Continue with Facebook",
+    "google":"Continue with Google",
+    "new":"¿You are new? Sign up",
+    "welcome":"Welcome to Blue-On",
+    "terms":"Accept terms and conditions ",
+    "error":"Error",
+    "tryagain":"Try again or change your option"
   },
   "options": {
     "name": "Options",
@@ -36,17 +41,17 @@
     "yes": "Yes",
     "no": "No"
   },
-  "search": {
-    "searchto": "You are looking for:",
-    "searching": "Searching...",
-    "out": "Out of range",
-    "less": "You are less than",
-    "more": "You are more than",
-    "near": "Near",
-    "verynear": "Very near",
-    "far": "Far"
+  "search":{
+    "searchto":"You are looking for:",
+    "searching":"Searching...",
+    "out":"Out of range",
+    "less":"You are less than",
+    "more":"You are more than",
+    "near":"Near",
+    "verynear":"Very near",
+    "far":"Far"
   },
-  "terms": {
-    "name": "Terms and Conditions",
+  "notification":{
+    "name":"Notifications"
   }
 }

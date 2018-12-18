@@ -1,14 +1,19 @@
 <ion-header no-border>
-    <ion-navbar transparent>
+  <ion-navbar transparent>
     <ion-title>{{'home.name' | translate}}</ion-title>
+    <ion-buttons end>
+      <button id="btn-not" ion-button icon-only (click)="openPageNot()">
+        <ion-icon name="list"></ion-icon>
+      </button>
+    </ion-buttons>
   </ion-navbar>
 </ion-header>
 
 <ion-content padding fullscreen>
   <h1>{{ 'home.hello' | translate }}</h1>
-  <button ion-button color="light" clear (click)="search()">{{ 'home.addnew.name' | translate }}</button>
-  <button ion-button color="light" clear (click)="device()">{{'home.mykeys.name' | translate}}</button>
-  <button ion-button color="light" clear (click)="tutorial()">{{'home.tutorial.name' | translate}}</button>
+  <button class="btn_home" ion-button color="light" clear (click)="search()">{{ 'home.addnew.name' | translate }}</button>
+  <button class="btn_home" ion-button color="light" clear (click)="device()">{{'home.mykeys.name' | translate}}</button>
+  <button class="btn_home" ion-button color="light" clear (click)="tutorial()">{{'home.tutorial.name' | translate}}</button>
 
   <img src="assets/imgs/BtnLog.png" alt="" (click)="logout()">
 

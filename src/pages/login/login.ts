@@ -1,3 +1,4 @@
+import { User } from '../../utils/user.model';
 import { Component } from '@angular/core';
 import { IonicPage, NavController, NavParams, AlertController } from 'ionic-angular';
 import { AngularFireAuth } from 'angularfire2/auth';
@@ -9,11 +10,11 @@ import { GooglePlus } from '@ionic-native/google-plus';
 import {HomePage} from "../home/home";
 import {InAppBrowser} from "@ionic-native/in-app-browser";
 import {url} from "../../app/uuid.config";
+import {TranslateService} from "@ngx-translate/core";
+import { AngularFirestore, AngularFirestoreCollection} from 'angularfire2/firestore';
 
-export interface User {
-  email: string;
-  password: string;
-}
+
+
 /**
  * Generated class for the LoginPage page.
  *
@@ -29,10 +30,12 @@ export interface User {
 
 export class LoginPage {
 
-  user = {} as User;
   acept:boolean = false;
+  private usersCollection: AngularFirestoreCollection<any>;
+  private user = {} as User;
 
   constructor(
+    private afs: AngularFirestore,
     public navCtrl: NavController,
     private afAuth: AngularFireAuth,
     public navParams: NavParams,
@@ -41,15 +44,17 @@ export class LoginPage {
     private fb: Facebook,
     private platform: Platform,
     private gplus: GooglePlus,
-    private iab: InAppBrowser
+    private iab: InAppBrowser,
+    private translate:TranslateService
     ) {
+      this.usersCollection = this.afs.collection('Users');
 
   }
 
   ionViewDidLoad() {
 
   }
-  async register(user: User) {
+  /*async register(user: User) {
     try {
       const result = await this.afAuth.auth.createUserWithEmailAndPassword(
         user.email,
@@ -70,7 +75,7 @@ export class LoginPage {
       });
       alert.present();
     }
-  }
+  }*/
 
   facebook(){
     if (this.platform.is('cordova')) {
@@ -78,12 +83,8 @@ export class LoginPage {
         const facebookCredential = firebase.auth.FacebookAuthProvider.credential(res.authResponse.accessToken);
         return firebase.auth().signInAndRetrieveDataWithCredential(facebookCredential)
           .then(result =>{
-            this.storage.set('introShown', true);
-            this.navCtrl.setRoot(HomePage, {}, {
-              animate: true,
-              direction: 'forward'
-            });
-           })
+              this.nextPage(result);
+          })
           .catch(result=>{
             console.log('Google Error' + result);
             this.showAlert();
@@ -105,10 +106,8 @@ export class LoginPage {
 
 
   async google() {
-
     if (this.platform.is('cordova')) {
       try {
-        console.log("1");
         const gplusUser = await this.gplus.login({
           'webClientId': '271111022906-samhssoaovo3bdukkv5b47p7j1mhrb37.apps.googleusercontent.com',
           'offline': false,
@@ -116,11 +115,7 @@ export class LoginPage {
         });
         return await this.afAuth.auth.signInAndRetrieveDataWithCredential(firebase.auth.GoogleAuthProvider.credential(gplusUser.idToken))
           .then(result =>{
-            this.storage.set('introShown', true);
-            this.navCtrl.setRoot(HomePage, {}, {
-              animate: true,
-              direction: 'forward'
-            });
+            this.nextPage(result);
           })
           .catch(result =>{
             console.log('Google Error' + result);
@@ -134,10 +129,23 @@ export class LoginPage {
     } 
   }
 
+  private async nextPage(result){
+      await this.storage.set('introShown', true);
+      await this.storage.set('emailUser', result.user.email);
+
+      this.user.email = result.user.email;
+      this.usersCollection.doc(result.user.email).set(this.user);
+
+      this.navCtrl.setRoot(HomePage, {}, {
+          animate: true,
+          direction: 'forward'
+      });
+  }
+
   showAlert() {
     const alert = this.alertCtrl.create({
-      title: 'Error',
-      subTitle: 'Intentelo nuevamente',
+      title: this.translate.instant('login.error'),
+      subTitle: this.translate.instant('login.tryagain'),
       buttons: ['OK']
     });
     alert.present();
@@ -150,7 +158,6 @@ export class LoginPage {
 
   verMas(){
     this.navCtrl.push('TerminosPage');
-
   }
-
+  
 }
