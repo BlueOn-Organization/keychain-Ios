@@ -10,13 +10,14 @@ page-terminos {
     flex-direction: column;
     align-content: stretch;
     // padding-top: 5px !important;
+    color: white;
+    margin-bottom: 100px;
+    margin-left: 10px;
+    margin-right: 10px;
+    text-align: justify;
+  }
+  .content{
     background-image: url('../assets/imgs/Flogin.jpg');
     background-size: 100% 100%;
-    text-align: center;
-    color: white;
-  }
-  #texto{
-    text-align: justify;
-    margin-bottom: 70px;
   }
 }
