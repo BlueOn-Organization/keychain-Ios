@@ -50,5 +50,8 @@
     "near":"Near",
     "verynear":"Very near",
     "far":"Far"
+  },
+  "notification":{
+    "name":"Notifications"
   }
 }

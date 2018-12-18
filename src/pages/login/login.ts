@@ -11,6 +11,8 @@ import {HomePage} from "../home/home";
 import {InAppBrowser} from "@ionic-native/in-app-browser";
 import {url} from "../../app/uuid.config";
 import {TranslateService} from "@ngx-translate/core";
+import { AngularFirestore, AngularFirestoreCollection} from 'angularfire2/firestore';
+
 
 
 /**
@@ -28,10 +30,12 @@ import {TranslateService} from "@ngx-translate/core";
 
 export class LoginPage {
 
-  user = {} as User;
   acept:boolean = false;
+  private usersCollection: AngularFirestoreCollection<any>;
+  private user = {} as User;
 
   constructor(
+    private afs: AngularFirestore,
     public navCtrl: NavController,
     private afAuth: AngularFireAuth,
     public navParams: NavParams,
@@ -43,6 +47,7 @@ export class LoginPage {
     private iab: InAppBrowser,
     private translate:TranslateService
     ) {
+      this.usersCollection = this.afs.collection('Users');
 
   }
 
@@ -125,9 +130,12 @@ export class LoginPage {
   }
 
   private async nextPage(result){
-      console.log(result.user.email);
       await this.storage.set('introShown', true);
       await this.storage.set('emailUser', result.user.email);
+
+      this.user.email = result.user.email;
+      this.usersCollection.doc(result.user.email).set(this.user);
+
       this.navCtrl.setRoot(HomePage, {}, {
           animate: true,
           direction: 'forward'
@@ -151,5 +159,5 @@ export class LoginPage {
   verMas(){
     this.navCtrl.push('TerminosPage');
   }
-
+  
 }

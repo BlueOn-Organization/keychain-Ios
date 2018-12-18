@@ -21,6 +21,9 @@ import { BeaconsStorage } from '../providers/beacons-storage/beacons-storage';
 import { BeaconMonitorProvider } from '../providers/beacon-monitor/beacon-monitor';
 import { BeaconStalkerProvider } from '../providers/beacon-stalker/beacon-stalker';
 import { ComponentsModule } from '../components/components.module';
+import { Geolocation } from '@ionic-native/geolocation';
+import { NativeGeocoder } from '@ionic-native/native-geocoder';
+
 import { Push } from '@ionic-native/push';
 import { TranslateModule, TranslateLoader } from '@ngx-translate/core';
 import { TranslateHttpLoader } from '@ngx-translate/http-loader';
@@ -88,7 +91,9 @@ const firebaseConfig = {
     BeaconStalkerProvider,
     Push,
     Globalization,
+    Geolocation,
     HttpClientModule,
+    NativeGeocoder
   ]
 })
 export class AppModule {}

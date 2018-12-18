@@ -13,8 +13,8 @@ import { BeaconsStorage } from "../../providers/beacons-storage/beacons-storage"
 import { Push, PushObject, PushOptions } from '@ionic-native/push';
 import { AngularFirestore, AngularFirestoreCollection} from 'angularfire2/firestore';
 import { TranslateService } from "@ngx-translate/core";
-
-
+import { Geolocation } from '@ionic-native/geolocation';
+import { NativeGeocoder, NativeGeocoderReverseResult, NativeGeocoderOptions } from '@ionic-native/native-geocoder';
 
 @Component({
   selector: 'page-home',
@@ -38,8 +38,9 @@ export class HomePage {
     private openNativeSettings: OpenNativeSettings,
     private beaconsStorage: BeaconsStorage,
     private push: Push,
-    private translate:TranslateService
-
+    private translate:TranslateService,
+    private geolocation: Geolocation,
+    private nativeGeocoder: NativeGeocoder,
   ) {
     this.usersCollection = this.afs.collection('Users');
   }
@@ -48,51 +49,51 @@ export class HomePage {
   ionViewWillLoad() {
     this.checkBluetoothEnabled();
     this.beaconsStorage.load();
-
   }
 
   ionViewDidLoad(){
     this.pushSetup();
+    this.getPosition();
   }
 
   checkBluetoothEnabled() {
-      this.ibeacon.isBluetoothEnabled().then(enabled => {
-          if (!enabled) {
-              if(this.platform.is('android')){
-                  this.alertAndroid();
-              }else{
-                  this.alertIos();
-              }
-          }
-      });
+    this.ibeacon.isBluetoothEnabled().then(enabled => {
+      if (!enabled) {
+        if(this.platform.is('android')){
+          this.alertAndroid();
+        }else{
+          this.alertIos();
+        }
+      }
+    });
   }
   //this.translate.instant('login.error')
   private alertAndroid(){
-      this.alert.create({
-          enableBackdropDismiss: false,
-          subTitle: this.translate.instant('home.alert'),
-          buttons: [{
-              text: this.translate.instant('home.activate'),
-              role: 'cancel',
-              handler: () => this.openSettings()
-          }]
-      }).present();
+    this.alert.create({
+      enableBackdropDismiss: false,
+      subTitle: this.translate.instant('home.alert'),
+      buttons: [{
+          text: this.translate.instant('home.activate'),
+          role: 'cancel',
+          handler: () => this.openSettings()
+      }]
+    }).present();
   }
 
   private alertIos(){
-      this.alert.create({
-          enableBackdropDismiss: false,
-          subTitle: this.translate.instant('home.alert'),
-          buttons: [{
-              text: this.translate.instant('home.validate'),
-              role: 'cancel',
-              handler: () => this.checkBluetoothEnabled()
-          }]
-      }).present();
+    this.alert.create({
+      enableBackdropDismiss: false,
+      subTitle: this.translate.instant('home.alert'),
+      buttons: [{
+          text: this.translate.instant('home.validate'),
+          role: 'cancel',
+          handler: () => this.checkBluetoothEnabled()
+      }]
+    }).present();
   }
 
   private openSettings(){
-      this.openNativeSettings.open("bluetooth");
+    this.openNativeSettings.open("bluetooth");
   }
 
   search() {
@@ -154,14 +155,43 @@ export class HomePage {
 
   }
 
-  private async saveUserBD() {
-    await this.storage.get("emailUser").then(email=>{
+  private saveUserBD() {
+    this.storage.get("emailUser").then(email=>{
       if(email != null) {
-        console.log('enter in saveUserBD',email)
-        this.user.email = email;
-        this.usersCollection.doc(email).set(this.user);
+        this.usersCollection.doc(email).update(this.user);
       }
     });
-
   }
+
+  private getPosition(){
+    this.geolocation.getCurrentPosition()
+    .then((resp) => {
+      this.getGeocode(resp);
+     })
+     .catch((error) => {
+       console.log('Error getting location', error);
+     });
+  }
+
+  private getGeocode(resp){
+    this.user.lat=resp.coords.latitude;
+    this.user.lng=resp.coords.longitude;
+    let options: NativeGeocoderOptions = {
+      useLocale: true,
+      maxResults: 1
+    };
+    this.nativeGeocoder.reverseGeocode(resp.coords.latitude, resp.coords.longitude, options)
+    .then((result: NativeGeocoderReverseResult[]) => {
+      console.log(result[0])
+      this.user.country = result[0].countryName;
+      this.user.countryCode = result[0].countryCode;
+      this.saveUserBD();
+    })
+    .catch((error: any) => console.log(error));
+  }
+
+  openPageNot(){
+    this.navCtrl.push('NotificationPage');
+  }
+
 }
