@@ -53,5 +53,8 @@
   },
   "notification":{
     "name":"Notifications"
+  },
+  "terms": {
+    "name": "Terms and Conditions"
   }
 }
